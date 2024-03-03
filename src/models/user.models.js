@@ -3,9 +3,7 @@ import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 
 const userSchema = new Schema(
-    
     {
-        // _id : Schema.Types.ObjectId,
         username: {
             type: String,
             required: true,
@@ -47,7 +45,6 @@ const userSchema = new Schema(
         refreshToken: {
             type: String
         }
-
     },
     {
         timestamps: true
@@ -87,9 +84,11 @@ userSchema.methods.generateRefreshToken = function(){
         },
         process.env.REFRESH_TOKEN_SECRET,
         {
-            expiresIn: process.env.REFRESH_TOKEN_EXPIRY
+            expiresIn: process.env.REFRESH_TOKEN_SECRET
         }
     )
 }
 
 export const User = mongoose.model("User", userSchema)
+
+export default userSchema
