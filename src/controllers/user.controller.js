@@ -276,7 +276,7 @@ const updateAccountDetails = asyncHandler(async(req, res) => {
         {
             $set: {
                 fullName,
-                email: email
+                email
             }
         },
         {new: true}
@@ -481,7 +481,6 @@ const getWatchHistory = asyncHandler(async(req, res) => {
         )
     )
 })
-
 
 export {
     registerUser,
